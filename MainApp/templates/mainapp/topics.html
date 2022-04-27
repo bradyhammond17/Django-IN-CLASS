@@ -1,7 +1,6 @@
 {% extends "MainApp/base.html" %}
 
 
-
 {% block content %}
 
 <p> Topics </p>
@@ -9,9 +8,14 @@
 <ul>
     {% for t in topics %}
 
-    <li>{{ t }} </li>
+    <li>
+    <a href="{% url 'MainApp:topic' t.id %}">{{ t.text }} </a>   
+    </li>
     {% empty %}
     <li>No topics have been added yet.</li>
     {% endfor %}
 </ul>
+
+<a href="{% url 'MainApp:new_topic' %}">Add a new topic</a>
+
 {% endblock content %}
